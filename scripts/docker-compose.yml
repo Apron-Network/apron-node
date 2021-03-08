@@ -1,0 +1,20 @@
+version: "3.2"
+
+services:
+  apron-node:
+    container_name: apron-node
+    image: apron-node:latest
+    ports:
+      - "9944:9944"
+      - "9933:9933"
+      - "30333:30333"
+    command: bash -c "/apron-node --dev --ws-external --rpc-external --rpc-methods Unsafe"
+
+  apron-frontend:
+    container_name: apron-frontend
+    image: apron-node:latest
+    ports:
+      - "3001:3001"
+    command: bash -c "cd /apps && serve -p 3001 build"
+    depends_on:
+      - apron-node
