@@ -31,20 +31,8 @@ Start a development chain:
 ### Interact with node
 
 By **Polkadot JS App**  
-Visit <https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/settings/developer> or  `Canvas-UI` []
+[https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#)
 
-Fill the config in **Settings>>Developer**.   
-
-```json
-{
-  "Address": "<AccountId>",
-  "LookupSource": "<AccountId>",
-  "DataInfo": {
-    "url": "Text",
-    "data": "Text"
-  }
-}
-```
 or
 
 By **Canvas UI**
