@@ -18,3 +18,29 @@ services:
     command: bash -c "cd /apps && serve -p 3001 build"
     depends_on:
       - apron-node
+
+  redis:
+    image: redis:latest
+    restart: always
+    volumes:
+      - ./conf/redis.conf:/etc/redis/redis.conf:rw
+      - ./data:/data:rw
+    command:
+      redis-server /etc/redis/redis.conf --appendonly yes
+
+  gateway:
+    image: apron-node:latest
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+      - 8082:8082
+    volumes:
+      - ./logs:/app/logs:rw
+    environment:
+      - PROXY_PORT=8080
+      - ADMIN_ADDR=0.0.0.0:8082
+      - REDIS_SERVER=redis:6379
+    command: bash -c "/app/gw"
+    depends_on:
+      - redis

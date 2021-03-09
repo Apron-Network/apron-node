@@ -30,6 +30,15 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && echo "d
 RUN apt update && apt install yarn -y
 RUN YARN_CHECKSUM_BEHAVIOR=update yarn && yarn build:www
 
+# build gateway
+FROM golang:1.16.0-buster AS build-env
+ARG GATEWAY_REPO="https://github.com/Apron-Network/apron_gateway.git"
+ARG GATEWAY_BRANCH="master"
+
+RUN git clone ${GATEWAY_REPO}
+WORKDIR /go/apron_gateway
+RUN make build
+
 FROM ubuntu
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install curl ca-certificates npm nodejs -y
@@ -38,7 +47,12 @@ COPY --from=builder /apron-node /
 
 COPY --from=frontend_builder /builds/apps/packages/apps /apps
 
+COPY --from=build-env /go/apron_gateway/gw /app/gw
+
 ENV PATH /opt/conda3/bin:$PATH
+ENV REDIS_SERVER=localhost:6379
+ENV PROXY_PORT=8080
+ENV ADMIN_ADDR=127.0.0.1:8082
 
 EXPOSE 30333 9933 9944 8000 3001
 
