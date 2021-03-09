@@ -4,7 +4,7 @@ FROM paritytech/ci-linux:production as builder
 LABEL maintainer="apron-dev"
 ARG RUST_VERSION=nightly-2020-10-06
 ARG PROFILE=debug
-ARG GIT_REPO="https://github.com/remote-freeman/apron-node.git"
+ARG GIT_REPO="https://github.com/apron-network/apron-node.git"
 ARG GIT_BRANCH="master"
 
 RUN git clone --recursive ${GIT_REPO}
