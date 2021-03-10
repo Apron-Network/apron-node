@@ -28,6 +28,10 @@ services:
     command:
       redis-server /etc/redis/redis.conf --appendonly yes
 
+  httpbin:
+    image: kennethreitz/httpbin
+    restart: always
+
   gateway:
     image: apron-node:latest
     build: .
@@ -44,3 +48,4 @@ services:
     command: bash -c "/app/gw"
     depends_on:
       - redis
+      - httpbin
