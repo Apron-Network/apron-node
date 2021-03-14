@@ -21,7 +21,7 @@ RUN cp target/${PROFILE}/apron-node /apron-node
 FROM paritytech/ci-linux:production as frontend_builder
 
 ARG FRONT_REPO="https://github.com/polkadot-js/apps.git"
-ARG FRONT_BRANCH="v0.73.1"
+ARG FRONT_BRANCH="v0.71.2"
 
 RUN git clone -b ${FRONT_BRANCH} ${FRONT_REPO}
 WORKDIR /builds/apps
