@@ -19,7 +19,8 @@ services:
     depends_on:
       - apron-node
 
-  redis:
+  apron-redis:
+    container_name: apron-redis
     image: redis:latest
     restart: always
     volumes:
@@ -28,11 +29,13 @@ services:
     command:
       redis-server /etc/redis/redis.conf --appendonly yes
 
-  httpbin:
+  apron-httpbin:
+    container_name: apron-httpbin
     image: kennethreitz/httpbin
     restart: always
 
-  gateway:
+  apron-gateway:
+    container_name: apron-gateway
     image: apron-node:latest
     build: .
     restart: always
@@ -47,5 +50,5 @@ services:
       - REDIS_SERVER=redis:6379
     command: bash -c "/app/gw"
     depends_on:
-      - redis
-      - httpbin
+      - apron-redis
+      - apron-httpbin
