@@ -18,10 +18,14 @@ codec = { package = "parity-scale-codec", version = "2.0.0", default-features = 
 [dependencies.frame-support]
 default-features = false
 version = "3.0.0"
+git = "https://github.com/paritytech/substrate"
+tag = "v3.0.0"
 
 [dependencies.frame-system]
 default-features = false
 version = "3.0.0"
+git = "https://github.com/paritytech/substrate"
+tag = "v3.0.0"
 
 [dev-dependencies]
 serde = { version = "1.0.101" }
@@ -29,14 +33,20 @@ serde = { version = "1.0.101" }
 [dev-dependencies.sp-core]
 default-features = false
 version = "3.0.0"
+git = "https://github.com/paritytech/substrate"
+tag = "v3.0.0"
 
 [dev-dependencies.sp-io]
 default-features = false
 version = "3.0.0"
+git = "https://github.com/paritytech/substrate"
+tag = "v3.0.0"
 
 [dev-dependencies.sp-runtime]
 default-features = false
 version = "3.0.0"
+git = "https://github.com/paritytech/substrate"
+tag = "v3.0.0"
 
 
 [features]
