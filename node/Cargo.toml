@@ -8,50 +8,55 @@ name = 'apron-node'
 repository = 'https://github.com/apron-network/apron-node/'
 version = '2.0.0'
 
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
 [[bin]]
 name = 'apron-node'
 
-[package.metadata.docs.rs]
-targets = ['x86_64-unknown-linux-gnu']
+[dependencies]
+structopt = "0.3.8"
+
+sc-cli = { version = "0.9.0", features = ["wasmtime"] }
+sp-core = { version = "3.0.0"}
+sc-executor = { version = "0.9.0", features = ["wasmtime"] }
+sc-service = { version = "0.9.0", features = ["wasmtime"] }
+sc-telemetry = { version = "3.0.0" }
+sc-keystore = { version = "3.0.0" }
+sp-inherents = { version = "3.0.0" }
+sc-transaction-pool = { version = "3.0.0" }
+sp-transaction-pool = { version = "3.0.0" }
+sc-consensus-aura = { version = "0.9.0" }
+sp-consensus-aura = { version = "0.9.0" }
+sp-consensus = { version = "0.9.0" }
+sc-consensus = { version = "0.9.0" }
+sc-finality-grandpa = { version = "0.9.0" }
+sp-finality-grandpa = { version = "3.0.0" }
+sc-client-api = { version = "3.0.0" }
+sp-runtime = { version = "3.0.0" }
+node-primitives = { version = "2.0.0", default-features = false, path = "../primitives" }
+
+# These dependencies are used for the node template's RPCs
+jsonrpc-core = "15.1.0"
+sc-rpc = { version = "3.0.0" }
+sp-api = { version = "3.0.0" }
+sc-rpc-api = { version = "0.9.0" }
+sp-blockchain = { version = "3.0.0" }
+sp-block-builder = { version = "3.0.0" }
+sc-basic-authorship = { version = "0.9.0" }
+substrate-frame-rpc-system = { version = "3.0.0" }
+pallet-transaction-payment-rpc = { version = "3.0.0" }
+
+# These dependencies are used for runtime benchmarking
+#frame-benchmarking = { version = "3.0.0" }
+#frame-benchmarking-cli = { version = "3.0.0" }
+
+pallet-contracts = { version = "2.0.0" }
+
+apron-node-runtime = { version = "2.0.0", path = "../runtime" }
 
 [build-dependencies]
-substrate-build-script-utils = '2.0.0'
-
-[dependencies]
-jsonrpc-core = '15.0.0'
-structopt = '0.3.8'
-
-# local dependencies
-apron-node-runtime = { path = '../runtime', version = '2.0.0' }
-
-# Substrate dependencies
-frame-benchmarking = '2.0.0'
-frame-benchmarking-cli = '2.0.0'
-pallet-transaction-payment-rpc = '2.0.0'
-sc-basic-authorship = '0.8.0'
-sc-cli = { features = ['wasmtime'], version = '0.8.0' }
-sc-client-api = '2.0.0'
-sc-consensus = '0.8.0'
-sc-consensus-aura = '0.8.0'
-sc-executor = { features = ['wasmtime'], version = '0.8.0' }
-sc-finality-grandpa = '0.8.0'
-sc-rpc = '2.0.0'
-sc-rpc-api = '0.8.0'
-sc-service = { features = ['wasmtime'], version = '0.8.0' }
-sc-transaction-pool = '2.0.0'
-sp-api = '2.0.0'
-sp-block-builder = '2.0.0'
-sp-blockchain = '2.0.0'
-sp-consensus = '0.8.0'
-sp-consensus-aura = '0.8.0'
-sp-core = '2.0.0'
-sp-finality-grandpa = '2.0.0'
-sp-inherents = '2.0.0'
-sp-runtime = '2.0.0'
-sp-transaction-pool = '2.0.0'
-substrate-frame-rpc-system = '2.0.0'
-pallet-contracts = '2.0.0'
-pallet-contracts-rpc = '0.8.0'
+substrate-build-script-utils = { version = "3.0.0" }
 
 [features]
 default = []

@@ -12,6 +12,8 @@ pub struct Cli {
 
 #[derive(Debug, StructOpt)]
 pub enum Subcommand {
+	/// Key management cli utilities
+	Key(sc_cli::KeySubcommand),
 	/// Build a chain specification.
 	BuildSpec(sc_cli::BuildSpecCmd),
 
@@ -34,6 +36,6 @@ pub enum Subcommand {
 	Revert(sc_cli::RevertCmd),
 
 	/// The custom benchmark subcommmand benchmarking runtime pallets.
-	#[structopt(name = "benchmark", about = "Benchmark runtime pallets.")]
-	Benchmark(frame_benchmarking_cli::BenchmarkCmd),
+	// #[structopt(name = "benchmark", about = "Benchmark runtime pallets.")]
+	// Benchmark(frame_benchmarking_cli::BenchmarkCmd),
 }
