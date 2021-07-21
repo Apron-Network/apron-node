@@ -3,6 +3,7 @@ use apron_runtime::{
 	AccountId, AuraConfig, BalancesConfig, ContractsConfig, GenesisConfig, GrandpaConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature
 };
+use sc_chain_spec::{Properties};
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
@@ -69,9 +70,9 @@ pub fn development_config() -> Result<ChainSpec, String> {
 		// Telemetry
 		None,
 		// Protocol ID
-		None,
+		Some("Apron-Dev"),
 		// Properties
-		None,
+		chain_properties(),
 		// Extensions
 		None,
 	))
@@ -117,12 +118,20 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 		// Telemetry
 		None,
 		// Protocol ID
-		None,
+		Some("Apron-Testnet"),
 		// Properties
-		None,
+		chain_properties(),
 		// Extensions
 		None,
 	))
+}
+
+fn chain_properties() -> Option<Properties> {
+	let mut p = Properties::new();
+	p.insert("tokenSymbol".into(), "APN".into());
+	p.insert("tokenDecimals".into(), 12.into());
+	p.insert("ss58Format".into(), 42.into());
+	Some(p)
 }
 
 /// Configure initial storage state for FRAME modules.
