@@ -18,5 +18,12 @@ services:
     ports:
       - "3001:3001"
     command: bash -c "cd /apps && serve -p 3001 build"
-    depends_on:
-      - apron-node
+
+  apron-gateway:
+    container_name: apron-gateway
+    image: apron-node:latest
+    ports:
+      - "8082:8082"
+      - "8080:8080"
+      - "2145:2145"
+    command: bash -c "/gateway"
