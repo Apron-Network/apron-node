@@ -3,7 +3,7 @@ name = 'apron-node'
 authors = ['Apron <https://github.com/apron-network>']
 build = 'build.rs'
 description = ''
-edition = '2018'
+edition = '2021'
 license = 'Apache 2.0'
 repository = 'https://github.com/apron-network/apron-node/'
 version = '2.0.0'
@@ -17,49 +17,46 @@ name = 'apron-node'
 [dependencies]
 structopt = "0.3.8"
 
-sc-cli = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0", features = ["wasmtime"] }
-sp-core = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-executor = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0", features = ["wasmtime"] }
-sc-service = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0", features = ["wasmtime"] }
-sc-telemetry = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-keystore = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-inherents = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-transaction-pool = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-chain-spec = { git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-transaction-pool = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-consensus-aura = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-consensus-aura = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-consensus = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-consensus = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-finality-grandpa = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-finality-grandpa = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-client-api = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-runtime = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
+sc-cli = { git = "https://github.com/paritytech/substrate", package = "sc-cli", features = ["wasmtime"] }
+sp-core = { git = "https://github.com/paritytech/substrate", package = "sp-core" }
+sc-executor = { git = "https://github.com/paritytech/substrate", package = "sc-executor", features = ["wasmtime"] }
+sc-service = { git = "https://github.com/paritytech/substrate", package = "sc-service", features = ["wasmtime"] }
+sc-telemetry = { git = "https://github.com/paritytech/substrate", package = "sc-telemetry" }
+sc-keystore = { git = "https://github.com/paritytech/substrate", package = "sc-keystore" }
+sp-inherents = { git = "https://github.com/paritytech/substrate", package = "sp-inherents" }
+sc-transaction-pool = { git = "https://github.com/paritytech/substrate", package = "sc-transaction-pool" }
+sc-transaction-pool-api = { git = "https://github.com/paritytech/substrate", package = "sc-transaction-pool-api" }
+sc-consensus-aura = { git = "https://github.com/paritytech/substrate", package = "sc-consensus-aura" }
+sp-consensus-aura = { git = "https://github.com/paritytech/substrate", package = "sp-consensus-aura" }
+sp-consensus = { git = "https://github.com/paritytech/substrate", package = "sp-consensus" }
+sc-consensus = { git = "https://github.com/paritytech/substrate", package = "sc-consensus" }
+sc-finality-grandpa = { git = "https://github.com/paritytech/substrate", package = "sc-finality-grandpa" }
+sp-finality-grandpa = { git = "https://github.com/paritytech/substrate", package = "sp-finality-grandpa" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", package = "sc-client-api" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", package = "sp-runtime" }
+sp-timestamp = { git = "https://github.com/paritytech/substrate", package = "sp-timestamp" }
+sc-chain-spec = { git = "https://github.com/paritytech/substrate", package = "sc-chain-spec" }
 
-# These dependencies are used for the node template's RPCs
-jsonrpc-core = "15.1.0"
-sc-rpc = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-api = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-rpc-api = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-blockchain = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sp-block-builder = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-sc-basic-authorship = { version = "0.9.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-substrate-frame-rpc-system = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-pallet-transaction-payment-rpc = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-pallet-contracts-rpc = { version = "0.8.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-node-primitives = { version = "2.0.0", default-features = false, git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
+# These dependencies are used for the node's RPCs
+jsonrpc-core = "18.0.0"
+sc-rpc = { git = "https://github.com/paritytech/substrate", package = "sc-rpc" }
+sp-api = { git = "https://github.com/paritytech/substrate", package = "sp-api" }
+sc-rpc-api = { git = "https://github.com/paritytech/substrate", package = "sc-rpc-api" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", package = "sp-blockchain" }
+sp-block-builder = { git = "https://github.com/paritytech/substrate", package = "sp-block-builder" }
+sc-basic-authorship = { git = "https://github.com/paritytech/substrate", package = "sc-basic-authorship" }
+substrate-frame-rpc-system = { git = "https://github.com/paritytech/substrate", package = "substrate-frame-rpc-system" }
+pallet-transaction-payment-rpc = { git = "https://github.com/paritytech/substrate", package = "pallet-transaction-payment-rpc" }
+pallet-contracts-rpc = { git = "https://github.com/paritytech/substrate", package = "pallet-contracts-rpc" }
 
 # These dependencies are used for runtime benchmarking
-frame-benchmarking = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-frame-benchmarking-cli = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
-
-# other pallet
-pallet-contracts = { version = "2.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
+frame-benchmarking = { git = "https://github.com/paritytech/substrate", package = "frame-benchmarking" }
+frame-benchmarking-cli = { git = "https://github.com/paritytech/substrate", package = "frame-benchmarking-cli" }
 
 apron-runtime = { version = "2.0.0", path = "../runtime" }
 
 [build-dependencies]
-substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/paritytech/substrate", tag = "v3.0.0" }
+substrate-build-script-utils = { git = "https://github.com/paritytech/substrate", package = "substrate-build-script-utils" }
 
 [features]
 default = []
