@@ -23,6 +23,8 @@ please use this raw seed `0xe40891ed4fa2eb6b8b89b1d641ae72e8c1ba383d809eeba64131
 
 The account must be `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJJ`
 
+![Add Account](https://github.com/Apron-Network/apron-node/blob/upgrade_contract/scripts/images/add_acount.png)
+
 ## Transfer some tokens to the added account.
 
 ## Download the contracts
@@ -30,6 +32,8 @@ please download the contracts from [here](https://github.com/Apron-Network/apron
 
 ## Upload and deploy market contract
 Please ensure the controller is `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJJ`
+
+![Market Contract](https://github.com/Apron-Network/apron-node/blob/upgrade_contract/scripts/images/market_contract.png)
 
 ## Upload and deploy stats contract
 Please ensure the controller is `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJJ`
