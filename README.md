@@ -10,14 +10,16 @@ Follow these steps to prepare a local development environment :hammer_and_wrench
 
 ### Get Code
 ```
-git clone https://github.com/Apron-Network/apron-node.git
+git clone -b upgrade_contract https://github.com/Apron-Network/apron-node.git
 ```
 
 ### Build
 
 ```bash
+rustup default nightly-2021-11-08
+rustup add target wasm32-unknown-unknown
 cd apron-node
-cargo build
+cargo build --release
 ```
 
 ### Run
@@ -25,7 +27,7 @@ cargo build
 Start a development chain:
 
 ```bash
-./target/debug/apron-node --dev
+./target/release/apron-node --dev
 ```
 
 ### Interact with node
@@ -38,4 +40,3 @@ or
 By **Canvas UI**
 
 [https://paritytech.github.io/canvas-ui](https://paritytech.github.io/canvas-ui)
-
