@@ -19,7 +19,7 @@ set custom point to `ws://127.0.0.1:9944`
 
 ## Add account 
 
-please use this raw seed `0xe40891ed4fa2eb6b8b89b1d641ae72e8c1ba383d809eeba64131b37bf0aa3898` 
+please use this **Raw seed** `0xe40891ed4fa2eb6b8b89b1d641ae72e8c1ba383d809eeba64131b37bf0aa3898` 
 
 The account must be `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJJ`
 
@@ -36,7 +36,7 @@ Please ensure the controller is `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJ
 ![Market Contract](https://github.com/Apron-Network/apron-node/blob/upgrade_contract/scripts/images/market_contract.png)
 
 ## Upload and deploy stats contract
-Please ensure the controller is `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJJ`
-Please ensure the market addr is the address of market contract created above.
+1. Please ensure the controller is `5F7Xv7RaJe8BBNULSuRTXWtfn68njP1NqQL5LLf41piRcEJJ`
+2. Please ensure the market addr is the address of market contract created above.
 
 
