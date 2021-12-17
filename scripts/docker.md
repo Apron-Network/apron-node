@@ -1,5 +1,10 @@
 ## Get docker image
-Please download the docker image from [here](https://hub.docker.com/r/apronnetwork/apron-node/).
+Please download the docker image from [here](https://drive.google.com/file/d/1fUIg4J3jyyI-6G76A-RRRrdQtlRIKw00/view?usp=sharing).
+
+```
+docker load < apron_node_base_20211214.tar.gz
+```
+
 
 ## Get docker compose file
 Please download the docker compose file from [here](https://github.com/Apron-Network/apron-node/blob/upgrade_contract/scripts/docker-compose-base.yml)
